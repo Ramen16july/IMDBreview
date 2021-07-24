@@ -4,26 +4,26 @@
 	<title></title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<body>
+<body style="background-color:powderblue;">
 
 	<header>
 		<div class="container">
 		<div id="brandname">
-			ML App
+			NLP App Ramen Borah
 		</div>
-		<h2>IMDB Moview Review Sentiment Anlysis</h2>
+		<h2>Lets check the Result</h2>
 		
 	</div>
 	</header>
-	<p style="color:blue;font-size:20;text-align: center;"><b>Results for Comment</b></p>
+	<p style="color:black;font-size:20;text-align: left;"><b>Sentiment of your Movie Review</b></p>
 	<div class="results">
 
 
 		
 	{% if prediction == 1%}
-	<h2 style="color:blue;">Wow thanks you liked our moview Don2</h2>
+	<h2 style="color:blue;">Wow thanks you liked our movie (Positive)</h2>
 	{% elif prediction == 0%}
-	<h2 style="color:red;">Thanks for your review (we will take care in future)</h2>
+	<h2 style="color:red;">Sorry you didn't like the movie (Negative)</h2>
 	{% endif %}
 
 	</div>
