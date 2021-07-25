@@ -132,38 +132,19 @@ lr_tfidf_score=accuracy_score(test_sentiments,lr_tfidf_predict)
 
 
 
-with open('Countvector.pickle','wb') as f:
+with open('Countvector_2.pickle','wb') as f:
     pickle.dump(cv,f)
 
 with open('logistic.pickle','wb') as f:
     pickle.dump(lr,f)
     
-with open('Countvector.pickle','rb') as f:
+with open('Countvector_2.pickle','rb') as f:
     cv=pickle.load(f)
     
 with open('logistic.pickle','rb') as f:
     clf=pickle.load(f)
 ## 1 positive 0 negative
-sample=["""A wonderful little production. <br /><br />The filming technique is very unassuming- very old-time-BBC fashion and gives a comforting, and sometimes discomforting, sense of realism to the entire piece. <br /><br />The actors are extremely well chosen- Michael Sheen not only "has got all the polari" but he has all the voices down pat too! You can truly see the seamless editing guided by the references to Williams\' diary entries, not only is it well worth the watching but it is a terrificly written and performed piece. A masterful production about one of the great master\'s of comedy and his life. <br /><br />The realism really comes home with the little things: the fantasy of the guard which, rather than use the traditional \'dream\' techniques remains solid then disappears. It plays on our knowledge and our senses, particularly with the scenes concerning Orton and Halliwell and the sets (particularly of their flat with Halliwell\'s murals decorating every surface) are terribly well done."""]
 
-sample=[""""Hickory Dickory Dock was a good Poirot mystery. I confess I have not read the book, despite being an avid Agatha Christie fan. The adaptation isn't without its problems, there were times when the humour, and there were valiant attempts to get it right, was a little overdone, and the events leading up to the final solution were rather rushed. I also thought there were some slow moments so some of the mystery felt padded. However, I loved how Hickory Dickory Dock was filmed, it had a very similar visual style to the brilliant ABC Murders, and it really set the atmosphere, what with the dark camera work and dark lighting. The darker moments were somewhat creepy, this was helped by one of the most haunting music scores in a Poirot adaptation, maybe not as disturbing as the one in One Two Buckle My Shoe, which gave me nightmares. The plot is complex, with all the essential ingredients, though not as convoluted as Buckle My Shoe,and in some way that is a good thing. The acting was very good, David Suchet is impeccable(I know I can't use this word forever but I can't think of a better word to describe his performance in the series) as Poirot, and Phillip Jackson and Pauline Moran do justice to their integral characters brilliantly. And the students had great personalities and well developed on the whole, particularly Damian Lewis as Leonard. All in all, solid mystery but doesn't rank along the best. 7.5/10 Bethany Cox """]
-
-sample=["""Awesome"""]
-type(sample)
-sample=str(sample)
-sample=strip_html(sample)
-sample=remove_special_characters(sample)
-sample=simple_stemmer(sample)
-sample=remove_stopwords(sample)
-#type(sample)
-sample=[sample]
-
-sample=cv.transform(sample)
-predict=clf.predict(sample)
-
-int(predict)
-
-print(clf.predict(sample))
 
 app = Flask(__name__)
 
